@@ -159,3 +159,60 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Register Custom Post Type Portfolio Piece
+function create_portfoliopiece_cpt() {
+
+	$labels = array(
+		'name' => _x( 'Portfolio Pieces', 'Post Type General Name', 'portfolio' ),
+		'singular_name' => _x( 'Portfolio Piece', 'Post Type Singular Name', 'portfolio' ),
+		'menu_name' => _x( 'Portfolio Pieces', 'Admin Menu text', 'portfolio' ),
+		'name_admin_bar' => _x( 'Portfolio Piece', 'Add New on Toolbar', 'portfolio' ),
+		'archives' => __( 'Portfolio Piece Archives', 'portfolio' ),
+		'attributes' => __( 'Portfolio Piece Attributes', 'portfolio' ),
+		'parent_item_colon' => __( 'Parent Portfolio Piece:', 'portfolio' ),
+		'all_items' => __( 'All Portfolio Pieces', 'portfolio' ),
+		'add_new_item' => __( 'Add New Portfolio Piece', 'portfolio' ),
+		'add_new' => __( 'Add New', 'portfolio' ),
+		'new_item' => __( 'New Portfolio Piece', 'portfolio' ),
+		'edit_item' => __( 'Edit Portfolio Piece', 'portfolio' ),
+		'update_item' => __( 'Update Portfolio Piece', 'portfolio' ),
+		'view_item' => __( 'View Portfolio Piece', 'portfolio' ),
+		'view_items' => __( 'View Portfolio Pieces', 'portfolio' ),
+		'search_items' => __( 'Search Portfolio Piece', 'portfolio' ),
+		'not_found' => __( 'Not found', 'portfolio' ),
+		'not_found_in_trash' => __( 'Not found in Trash', 'portfolio' ),
+		'featured_image' => __( 'Featured Image', 'portfolio' ),
+		'set_featured_image' => __( 'Set featured image', 'portfolio' ),
+		'remove_featured_image' => __( 'Remove featured image', 'portfolio' ),
+		'use_featured_image' => __( 'Use as featured image', 'portfolio' ),
+		'insert_into_item' => __( 'Insert into Portfolio Piece', 'portfolio' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Portfolio Piece', 'portfolio' ),
+		'items_list' => __( 'Portfolio Pieces list', 'portfolio' ),
+		'items_list_navigation' => __( 'Portfolio Pieces list navigation', 'portfolio' ),
+		'filter_items_list' => __( 'Filter Portfolio Pieces list', 'portfolio' ),
+	);
+	$args = array(
+		'label' => __( 'Portfolio Piece', 'portfolio' ),
+		'description' => __( '', 'portfolio' ),
+		'labels' => $labels,
+		'menu_icon' => 'dashicons-lightbulb',
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions'),
+		'taxonomies' => array(),
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'menu_position' => 5,
+		'show_in_admin_bar' => true,
+		'show_in_nav_menus' => true,
+		'can_export' => true,
+		'has_archive' => true,
+		'hierarchical' => false,
+		'exclude_from_search' => false,
+		'show_in_rest' => true,
+		'publicly_queryable' => true,
+		'capability_type' => 'post',
+	);
+	register_post_type( 'portfolio', $args );
+
+}
+add_action( 'init', 'create_portfoliopiece_cpt', 0 );
