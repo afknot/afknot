@@ -1,0 +1,325 @@
+$primary: #4f5058;
+$secondary: #b68d00;
+
+// Navs
+
+// Color system
+
+
+
+@font-face {
+  font-family: 'Font Awesome Regular';
+  src: url('../fonts/font-awesome/fa-regular-400.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-regular-400.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-regular-400.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-regular-400.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-regular-400.svg') format('svg')
+}
+
+@font-face {
+  font-family: 'Font Awesome Solid';
+  src: url('../fonts/font-awesome/fa-solid-900.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-solid-900.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-solid-900.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-solid-900.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-solid-900.svg') format('svg')
+}
+
+@font-face {
+  font-family: 'Font Awesome Brands';
+  src: url('../fonts/font-awesome/fa-brands-400.eot');
+  src: local('☺'), 
+       url('../fonts/font-awesome/fa-brands-400.woff') format('woff'), 
+       url('../fonts/font-awesome/fa-brands-400.woff2') format('woff2'), 
+       url('../fonts/font-awesome/fa-brands-400.ttf') format('truetype'), 
+       url('../fonts/font-awesome/fa-brands-400.svg') format('svg')
+}
+
+* {
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: "Gill Sans", Arial, Helvetica, sans-serif;
+}
+
+.page {
+  margin-bottom: 0;
+}
+.wrapper {
+  @media (min-width: 600px) { display: flex; flex-direction: row; }
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  color: $primary;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 50px;
+}
+
+h2 {
+  color: $secondary;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+h3 {
+  color: $primary;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 30px; 
+}
+
+  a {
+    transition: color .4s ease .2s;
+
+    &:link,
+    &:visited {
+      color: $primary;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $secondary;
+    }
+  }
+
+  .col-1 {
+    @media (min-width: 600px) { flex: 1; }
+
+    background-color: $primary;
+    padding: 2rem;
+    
+    nav {
+      margin-top: 2rem;
+      float: none;
+      text-align: center;
+      text-transform: uppercase;
+
+      button {
+        margin: 0 auto;
+        font-size: 18px;
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background-color: transparent;
+   
+        &:after {
+          font-family: 'Font Awesome Solid';
+          padding-left: .5rem;
+        }
+   
+        &[aria-expanded="false"]:after {
+          content: "\f078";
+        }
+
+        &[aria-expanded="true"]:after {
+          content: "\f077";
+        }
+
+        &[aria-expanded="true"] {
+          margin: 0 auto 2rem;
+        }
+
+      }
+
+        li {
+            float: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+
+            a {
+              font-size: 18px;
+              padding: .5rem 0;
+              color: #fff;
+
+              &:link,
+              &:visited {
+                color: #fff;
+              }
+
+              &:hover,
+              &:active,
+              &:focus {
+                color: $secondary;
+              }
+            }
+
+            &.current-menu-item {
+              
+              a {
+                color: $secondary;
+              }
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+        }
+    }
+
+    .site-branding {
+      text-align: center;
+
+      img {
+        min-width: 220px;
+        max-width: 400px;
+      }
+
+    }
+
+  }
+  .col-2 {
+    @media (min-width: 600px) { display: flex; flex-direction: column; flex: 5; }
+    padding: 0;
+
+    main {
+      padding: 1rem 2rem 2rem;
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+  }
+  .content {
+    @media (min-width: 600px) { display: flex; flex-direction: row; }
+  }
+
+footer.site-footer {
+  padding: 1rem 3rem;
+  text-align: center;
+  background-color: lighten( $primary, 10% );
+  color: #fff;
+
+
+  a {
+    color: #fff;
+
+    &:link,
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $secondary;
+    }
+  }
+
+}
+
+main {
+    @media (min-width: 600px) { 
+        //display: flex; 
+
+        aside {width: 25%;}
+    }
+}
+
+
+  nav {
+      position: sticky;
+      top: 5rem;
+  }
+
+
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color: $primary;
+    border: none;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .4s ease .2s;
+  }
+
+  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: $secondary;
+  }
+
+/* Style the tab */
+.tab {
+  //overflow: hidden;
+  display: flex;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  flex: 1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  color: $primary;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px 4px 0 0;
+  border-bottom: 10px solid $primary;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: $primary;
+  color: #fff;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 0;
+  border-top: none;
+}
+
+
+@media (max-width: 800px) { 
+  .wp-block-image .alignright {
+    float: none;
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .wp-block-image .alignleft {
+    float: none;
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+}
+
+.header_gallery {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    img {
+      width: auto;
+      height: auto;
+      margin-right: 2px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+  }
+}
