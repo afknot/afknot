@@ -15,10 +15,15 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="author" content="https://www.afknot.com" />
+	<meta property="description" content="<?php if(get_field('description')){echo sanitize_text_field(get_field('description'));}else{echo sanitize_text_field(get_bloginfo('description'));} ?>" />
+	<meta property="keywords" content="<?php if(get_field('keywords')){echo sanitize_text_field(get_field('keywords'));}else{echo sanitize_text_field(get_bloginfo('name'));} ?>" />
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
+
+
+
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
