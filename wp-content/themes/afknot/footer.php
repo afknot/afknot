@@ -12,6 +12,7 @@
 ?>
 
 	</div><!-- #content -->
+	</div><!-- #nav-content-cols -->
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">

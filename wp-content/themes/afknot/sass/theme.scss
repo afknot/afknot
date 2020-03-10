@@ -1,11 +1,15 @@
-$primary: #4f5058;
-$secondary: #b68d00;
+$primary: #59606E;
+$secondary: #59606E;
+$post-it-yellow: #FFF682;
+$post-it-green: #C4E3CE;
+$post-it-red: #F6C8E0;
+
 
 // Navs
 
 // Color system
 
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Permanent+Marker&display=swap');
 
 @font-face {
   font-family: 'Font Awesome Regular';
@@ -37,21 +41,58 @@ $secondary: #b68d00;
        url('../fonts/font-awesome/fa-brands-400.svg') format('svg')
 }
 
+// Layout
+
+#page {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 3rem;
+}
+
+#nav-content-cols {
+  display: flex;
+}
+
+#site-navigation {
+  margin-right: 5rem;
+}
+
+#colophon {
+  margin-top: 3rem;
+}
+
 * {
   box-sizing: border-box; 
 }
 
 body {
-  font-family: "Gill Sans", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  background: rgb(241,241,242);
+  background: linear-gradient(42deg, rgba(241,241,242,1) 0%, rgba(255,255,255,1) 35%, rgba(242,244,245,1) 100%);
+
+  // &:before {
+  //   position: fixed;
+  //   right: 100px;
+  //   top: 80px;
+  //   content: 'Thematic Analysis';
+  //   font-family: 'Permanent Marker', cursive;
+  //   font-size: 30px;
+  //   color: rgba( $primary, .04 );
+  //   transform: rotate(10deg);
+  // }
 }
 
-.page {
-  margin-bottom: 0;
+h1.site-title {
+  background: transparent url(../img/logo.svg) 0 0 no-repeat;
+  width: 183px;
+  height: 137px;
+  overflow: hidden;
+  text-indent: -8888px;
 }
-.wrapper {
-  @media (min-width: 600px) { display: flex; flex-direction: row; }
-  min-height: 100vh;
-  margin: 0;
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Permanent Marker', cursive;
 }
 
 h1 {
@@ -75,251 +116,156 @@ h3 {
   line-height: 30px; 
 }
 
+#content {
+
   a {
-    transition: color .4s ease .2s;
+    transition: background-position .4s ease .1s;
 
     &:link,
     &:visited {
-      color: $primary;
+      color: #000;
+      display: inline-block;
+      background: transparent;
+      background: linear-gradient(to right, lighten($post-it-yellow, 10%) 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      transition: background-position color .5s ease;
     }
 
     &:hover,
     &:active,
     &:focus {
-      color: $secondary;
+      color: darken($post-it-yellow, 60%);
+      background-position: left bottom;
     }
   }
+}
 
-  .col-1 {
-    @media (min-width: 600px) { flex: 1; }
+nav#site-navigation {
+  width: 270px;
+  margin-top: 2.5rem;
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
 
-    background-color: $primary;
-    padding: 2rem;
+    li {
+      order: 1;
+      align-self: flex-start;
+
+      &:nth-of-type(1):before {
+        display: block;
+        margin: 0 auto 2rem;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 28px;
+        line-height: 38px;
+        color: #59606E;
+        content: 'To Do';
+      }
+
+      &.current-menu-item:first-child + li:before {
+        display: block;
+        margin: 0 auto 2rem;
+        text-align: center;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 28px;
+        line-height: 38px;
+        color: #59606E;
+        content: 'To Do';
+      }
+
+      &.current-menu-item {
+        order: 0;
+        align-self: flex-end;
+        position: absolute;
     
-    nav {
-      margin-top: 2rem;
-      float: none;
-      text-align: center;
-      text-transform: uppercase;
-
-      button {
-        margin: 0 auto;
-        font-size: 18px;
-        color: #fff;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        background-color: transparent;
-   
-        &:after {
-          font-family: 'Font Awesome Solid';
-          padding-left: .5rem;
-        }
-   
-        &[aria-expanded="false"]:after {
-          content: "\f078";
-        }
-
-        &[aria-expanded="true"]:after {
-          content: "\f077";
-        }
-
-        &[aria-expanded="true"] {
+        &:before {
+          display: block;
           margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: #59606E;
+          content: 'Doing';
         }
-
       }
 
-        li {
-            float: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      &:nth-child(1) {
+        transform: rotate(-3deg);
+      }
+      
+      &:nth-child(2) {
+        transform: rotate(-1deg);
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(2deg);
+      }
+      
+      &:nth-child(4) {
+        transform: rotate(3deg);
+      }
+      
+      &:nth-child(5) {
+        transform: rotate(3deg);
+      }
 
-            a {
-              font-size: 18px;
-              padding: .5rem 0;
-              color: #fff;
+      a {
+        display: flex;
+        position: relative;
+        margin: 0 auto 2rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        min-height: 120px;
+        width: 120px;
+        border-radius: 3px;
+        padding: 20px;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 14px;
+        line-height: 24px;
+        color: $primary;
+        background-color: #FFF682;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        transition: box-shadow 0.4s ease, transform .3s ease-in-out;
 
-              &:link,
-              &:visited {
-                color: #fff;
-              }
-
-              &:hover,
-              &:active,
-              &:focus {
-                color: $secondary;
-              }
-            }
-
-            &.current-menu-item {
-              
-              a {
-                color: $secondary;
-              }
-            }
-
-            &:last-child {
-              border-bottom: none;
-            }
+        &:hover {
+          transform: scale(1.1);
+          transform: rotate(1deg);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-    }
-
-    .site-branding {
-      text-align: center;
-
-      img {
-        min-width: 220px;
-        max-width: 400px;
-      }
-
-    }
-
-  }
-  .col-2 {
-    @media (min-width: 600px) { display: flex; flex-direction: column; flex: 5; }
-    padding: 0;
-
-    main {
-      padding: 1rem 2rem 2rem;
-      font-size: 18px;
-      line-height: 26px;
-    }
-
-  }
-  .content {
-    @media (min-width: 600px) { display: flex; flex-direction: row; }
-  }
-
-footer.site-footer {
-  padding: 1rem 3rem;
-  text-align: center;
-  background-color: lighten( $primary, 10% );
-  color: #fff;
-
-
-  a {
-    color: #fff;
-
-    &:link,
-    &:visited {
-      color: #fff;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: $secondary;
-    }
-  }
-
-}
-
-main {
-    @media (min-width: 600px) { 
-        //display: flex; 
-
-        aside {width: 25%;}
-    }
-}
-
-
-  nav {
-      position: sticky;
-      top: 5rem;
-  }
-
-
-  input[type=button], input[type=submit], input[type=reset] {
-    background-color: $primary;
-    border: none;
-    color: #fff;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color .4s ease .2s;
-  }
-
-  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-    background-color: $secondary;
-  }
-
-/* Style the tab */
-.tab {
-  //overflow: hidden;
-  display: flex;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  flex: 1;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  color: $primary;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 4px 4px 0 0;
-  border-bottom: 10px solid $primary;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: $primary;
-  color: #fff;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 0;
-  border-top: none;
-}
-
-
-@media (max-width: 800px) { 
-  .wp-block-image .alignright {
-    float: none;
-    width: 100%;
-    height: auto;
-    margin-left: 0;
-  }
-
-  .wp-block-image .alignleft {
-    float: none;
-    width: 100%;
-    height: auto;
-    margin-right: 0;
-  }
-
-}
-
-.header_gallery {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-
-  li {
-    margin: 0;
-    padding: 0;
-
-    img {
-      width: auto;
-      height: auto;
-      margin-right: 2px;
-
-      &:last-of-type {
-        margin-right: 0;
+    
+        // &:visited {
+        //   background-color: #F6C8E0;
+        // }
+    
+        &[aria-current="page"] {
+          background-color: #C4E3CE;
+        }
       }
     }
-
   }
 }
+  
+
+  
+
+
+  
+  // nav div#todo a {
+  //   //background-color: #FFF682;
+  // }
+  
+  // nav div#doing a {
+  //   //background-color: #C4E3CE;
+  // }
+  
+  // nav div#done a {
+  //   //background-color: #F6C8E0;
+  // }
+  
