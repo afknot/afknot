@@ -1410,11 +1410,13 @@ object {
   margin: 4rem auto;
   padding: 0 3rem; }
 
-#nav-content-cols {
-  display: flex; }
+@media (min-width: 37.5em) {
+  #nav-content-cols {
+    display: flex; } }
 
-#site-navigation {
-  margin-right: 5rem; }
+@media (min-width: 37.5em) {
+  #site-navigation {
+    margin-right: 5rem; } }
 
 #colophon {
   margin-top: 3rem; }
@@ -1428,36 +1430,42 @@ body {
   background: linear-gradient(42deg, #f1f1f2 0%, white 35%, #f2f4f5 100%); }
 
 h1.site-title {
+  margin: 0 auto 2rem;
   background: transparent url(../img/logo.svg) 0 0 no-repeat;
-  width: 183px;
-  height: 137px;
+  background-size: contain;
+  width: 120px;
+  height: 90px;
   overflow: hidden;
   text-indent: -8888px; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Permanent Marker', cursive; }
+  font-family: 'Permanent Marker', cursive;
+  color: #303030; }
+  @media (max-width: 37.5em) {
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center; } }
 
 h1 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 44px;
-  line-height: 50px; }
+  font-size: 48px;
+  line-height: 58px; }
 
 h2 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 40px; }
 
 h3 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px; }
 
-#content a {
+#content a,
+footer.site-footer a {
   transition: background-position .4s ease .1s; }
-  #content a:link, #content a:visited {
+  #content a:link, #content a:visited,
+  footer.site-footer a:link,
+  footer.site-footer a:visited {
     color: #000;
     display: inline-block;
     background: transparent;
@@ -1465,87 +1473,141 @@ h3 {
     background-size: 200% 100%;
     background-position: right bottom;
     transition: background-position color .5s ease; }
-  #content a:hover, #content a:active, #content a:focus {
+  #content a:hover, #content a:active, #content a:focus,
+  footer.site-footer a:hover,
+  footer.site-footer a:active,
+  footer.site-footer a:focus {
     color: #4f4900;
     background-position: left bottom; }
 
-nav#site-navigation {
-  width: 270px;
-  margin-top: 2.5rem; }
-  nav#site-navigation ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    position: relative; }
-    nav#site-navigation ul li {
-      order: 1;
-      align-self: flex-start; }
-      nav#site-navigation ul li:nth-of-type(1):before {
-        display: block;
-        margin: 0 auto 2rem;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 28px;
-        line-height: 38px;
-        color: #59606E;
-        content: 'To Do'; }
-      nav#site-navigation ul li.current-menu-item:first-child + li:before {
-        display: block;
-        margin: 0 auto 2rem;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 28px;
-        line-height: 38px;
-        color: #59606E;
-        content: 'To Do'; }
-      nav#site-navigation ul li.current-menu-item {
-        order: 0;
-        align-self: flex-end;
-        position: absolute; }
-        nav#site-navigation ul li.current-menu-item:before {
+@media (min-width: 37.5em) {
+  nav#site-navigation {
+    width: 270px;
+    margin-top: 1.5rem; }
+    nav#site-navigation ul {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-wrap: wrap; }
+      nav#site-navigation ul li {
+        order: 1;
+        align-self: flex-start; }
+        nav#site-navigation ul li:nth-of-type(1):before {
           display: block;
           margin: 0 auto 2rem;
           text-align: center;
           font-family: 'Permanent Marker', cursive;
           font-size: 28px;
           line-height: 38px;
-          color: #59606E;
-          content: 'Doing'; }
-      nav#site-navigation ul li:nth-child(1) {
-        transform: rotate(-3deg); }
-      nav#site-navigation ul li:nth-child(2) {
-        transform: rotate(-1deg); }
-      nav#site-navigation ul li:nth-child(3) {
-        transform: rotate(2deg); }
-      nav#site-navigation ul li:nth-child(4) {
-        transform: rotate(3deg); }
-      nav#site-navigation ul li:nth-child(5) {
-        transform: rotate(3deg); }
+          color: #303030;
+          content: 'To Do'; }
+        nav#site-navigation ul li.current-menu-item:first-child + li:before {
+          display: block;
+          margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: #303030;
+          content: 'To Do'; }
+        nav#site-navigation ul li.current-menu-item {
+          order: 0;
+          align-self: flex-end;
+          position: absolute; }
+          nav#site-navigation ul li.current-menu-item:before {
+            display: block;
+            margin: 0 auto 2rem;
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 28px;
+            line-height: 38px;
+            color: #303030;
+            content: 'Doing'; }
+        nav#site-navigation ul li:nth-child(1) {
+          transform: rotate(-3deg); }
+        nav#site-navigation ul li:nth-child(2) {
+          transform: rotate(-1deg); }
+        nav#site-navigation ul li:nth-child(3) {
+          transform: rotate(2deg); }
+        nav#site-navigation ul li:nth-child(4) {
+          transform: rotate(3deg); }
+        nav#site-navigation ul li:nth-child(5) {
+          transform: rotate(3deg); }
+        nav#site-navigation ul li a {
+          display: flex;
+          position: relative;
+          margin: 0 auto 2rem;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          text-decoration: none;
+          min-height: 120px;
+          width: 120px;
+          border-radius: 3px;
+          padding: 20px;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 14px;
+          line-height: 24px;
+          color: #000;
+          background-color: #FFF682;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          transition: box-shadow 0.4s ease, transform .3s ease-in-out; }
+          nav#site-navigation ul li a:hover {
+            transform: scale(1.1);
+            transform: rotate(1deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
+          nav#site-navigation ul li a[aria-current="page"] {
+            background-color: #C4E3CE; }
+  body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio {
+    order: 0;
+    align-self: flex-end; } }
+  @media (min-width: 37.5em) and (min-width: 37.5em) {
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio {
+      position: absolute; } }
+
+@media (min-width: 37.5em) {
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio:before {
+      display: block;
+      margin: 0 auto 2rem;
+      text-align: center;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 28px;
+      line-height: 38px;
+      color: #303030;
+      content: 'Doing'; }
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio a {
+      background-color: #C4E3CE; } }
+
+@media (max-width: 37.5em) {
+  nav#site-navigation button.menu-toggle {
+    margin: 0 auto 1.5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid #303030;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    line-height: 30px; }
+  nav#site-navigation ul {
+    position: relative; }
+    nav#site-navigation ul li {
+      display: block;
+      float: none;
+      text-align: center;
+      margin-bottom: 1rem; }
+      nav#site-navigation ul li.current-menu-item a {
+        display: inline;
+        color: #4f4900;
+        background-color: #fffab5; }
       nav#site-navigation ul li a {
-        display: flex;
-        position: relative;
-        margin: 0 auto 2rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        text-decoration: none;
-        min-height: 120px;
-        width: 120px;
-        border-radius: 3px;
-        padding: 20px;
+        display: inline;
         font-family: 'Permanent Marker', cursive;
         font-size: 14px;
         line-height: 24px;
-        color: #59606E;
-        background-color: #FFF682;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 0.4s ease, transform .3s ease-in-out; }
-        nav#site-navigation ul li a:hover {
-          transform: scale(1.1);
-          transform: rotate(1deg);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
-        nav#site-navigation ul li a[aria-current="page"] {
-          background-color: #C4E3CE; }
+        color: #303030; } }
+
+footer .site-info {
+  text-align: center;
+  font-size: .75rem; }
 
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Permanent+Marker&display=swap");
@@ -1569,11 +1631,13 @@ nav#site-navigation {
   margin: 4rem auto;
   padding: 0 3rem; }
 
-#nav-content-cols {
-  display: flex; }
+@media (min-width: 37.5em) {
+  #nav-content-cols {
+    display: flex; } }
 
-#site-navigation {
-  margin-right: 5rem; }
+@media (min-width: 37.5em) {
+  #site-navigation {
+    margin-right: 5rem; } }
 
 #colophon {
   margin-top: 3rem; }
@@ -1587,36 +1651,42 @@ body {
   background: linear-gradient(42deg, #f1f1f2 0%, white 35%, #f2f4f5 100%); }
 
 h1.site-title {
+  margin: 0 auto 2rem;
   background: transparent url(../img/logo.svg) 0 0 no-repeat;
-  width: 183px;
-  height: 137px;
+  background-size: contain;
+  width: 120px;
+  height: 90px;
   overflow: hidden;
   text-indent: -8888px; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Permanent Marker', cursive; }
+  font-family: 'Permanent Marker', cursive;
+  color: #303030; }
+  @media (max-width: 37.5em) {
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center; } }
 
 h1 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 44px;
-  line-height: 50px; }
+  font-size: 48px;
+  line-height: 58px; }
 
 h2 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 40px; }
 
 h3 {
-  color: #59606E;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px; }
 
-#content a {
+#content a,
+footer.site-footer a {
   transition: background-position .4s ease .1s; }
-  #content a:link, #content a:visited {
+  #content a:link, #content a:visited,
+  footer.site-footer a:link,
+  footer.site-footer a:visited {
     color: #000;
     display: inline-block;
     background: transparent;
@@ -1624,84 +1694,138 @@ h3 {
     background-size: 200% 100%;
     background-position: right bottom;
     transition: background-position color .5s ease; }
-  #content a:hover, #content a:active, #content a:focus {
+  #content a:hover, #content a:active, #content a:focus,
+  footer.site-footer a:hover,
+  footer.site-footer a:active,
+  footer.site-footer a:focus {
     color: #4f4900;
     background-position: left bottom; }
 
-nav#site-navigation {
-  width: 270px;
-  margin-top: 2.5rem; }
-  nav#site-navigation ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    position: relative; }
-    nav#site-navigation ul li {
-      order: 1;
-      align-self: flex-start; }
-      nav#site-navigation ul li:nth-of-type(1):before {
-        display: block;
-        margin: 0 auto 2rem;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 28px;
-        line-height: 38px;
-        color: #59606E;
-        content: 'To Do'; }
-      nav#site-navigation ul li.current-menu-item:first-child + li:before {
-        display: block;
-        margin: 0 auto 2rem;
-        text-align: center;
-        font-family: 'Permanent Marker', cursive;
-        font-size: 28px;
-        line-height: 38px;
-        color: #59606E;
-        content: 'To Do'; }
-      nav#site-navigation ul li.current-menu-item {
-        order: 0;
-        align-self: flex-end;
-        position: absolute; }
-        nav#site-navigation ul li.current-menu-item:before {
+@media (min-width: 37.5em) {
+  nav#site-navigation {
+    width: 270px;
+    margin-top: 1.5rem; }
+    nav#site-navigation ul {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-wrap: wrap; }
+      nav#site-navigation ul li {
+        order: 1;
+        align-self: flex-start; }
+        nav#site-navigation ul li:nth-of-type(1):before {
           display: block;
           margin: 0 auto 2rem;
           text-align: center;
           font-family: 'Permanent Marker', cursive;
           font-size: 28px;
           line-height: 38px;
-          color: #59606E;
-          content: 'Doing'; }
-      nav#site-navigation ul li:nth-child(1) {
-        transform: rotate(-3deg); }
-      nav#site-navigation ul li:nth-child(2) {
-        transform: rotate(-1deg); }
-      nav#site-navigation ul li:nth-child(3) {
-        transform: rotate(2deg); }
-      nav#site-navigation ul li:nth-child(4) {
-        transform: rotate(3deg); }
-      nav#site-navigation ul li:nth-child(5) {
-        transform: rotate(3deg); }
+          color: #303030;
+          content: 'To Do'; }
+        nav#site-navigation ul li.current-menu-item:first-child + li:before {
+          display: block;
+          margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: #303030;
+          content: 'To Do'; }
+        nav#site-navigation ul li.current-menu-item {
+          order: 0;
+          align-self: flex-end;
+          position: absolute; }
+          nav#site-navigation ul li.current-menu-item:before {
+            display: block;
+            margin: 0 auto 2rem;
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 28px;
+            line-height: 38px;
+            color: #303030;
+            content: 'Doing'; }
+        nav#site-navigation ul li:nth-child(1) {
+          transform: rotate(-3deg); }
+        nav#site-navigation ul li:nth-child(2) {
+          transform: rotate(-1deg); }
+        nav#site-navigation ul li:nth-child(3) {
+          transform: rotate(2deg); }
+        nav#site-navigation ul li:nth-child(4) {
+          transform: rotate(3deg); }
+        nav#site-navigation ul li:nth-child(5) {
+          transform: rotate(3deg); }
+        nav#site-navigation ul li a {
+          display: flex;
+          position: relative;
+          margin: 0 auto 2rem;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          text-decoration: none;
+          min-height: 120px;
+          width: 120px;
+          border-radius: 3px;
+          padding: 20px;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 14px;
+          line-height: 24px;
+          color: #000;
+          background-color: #FFF682;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          transition: box-shadow 0.4s ease, transform .3s ease-in-out; }
+          nav#site-navigation ul li a:hover {
+            transform: scale(1.1);
+            transform: rotate(1deg);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
+          nav#site-navigation ul li a[aria-current="page"] {
+            background-color: #C4E3CE; }
+  body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio {
+    order: 0;
+    align-self: flex-end; } }
+  @media (min-width: 37.5em) and (min-width: 37.5em) {
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio {
+      position: absolute; } }
+
+@media (min-width: 37.5em) {
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio:before {
+      display: block;
+      margin: 0 auto 2rem;
+      text-align: center;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 28px;
+      line-height: 38px;
+      color: #303030;
+      content: 'Doing'; }
+    body.single-portfolio nav#site-navigation ul li.menu-item-object-portfolio a {
+      background-color: #C4E3CE; } }
+
+@media (max-width: 37.5em) {
+  nav#site-navigation button.menu-toggle {
+    margin: 0 auto 1.5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid #303030;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    line-height: 30px; }
+  nav#site-navigation ul {
+    position: relative; }
+    nav#site-navigation ul li {
+      display: block;
+      float: none;
+      text-align: center;
+      margin-bottom: 1rem; }
+      nav#site-navigation ul li.current-menu-item a {
+        display: inline;
+        color: #4f4900;
+        background-color: #fffab5; }
       nav#site-navigation ul li a {
-        display: flex;
-        position: relative;
-        margin: 0 auto 2rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        text-decoration: none;
-        min-height: 120px;
-        width: 120px;
-        border-radius: 3px;
-        padding: 20px;
+        display: inline;
         font-family: 'Permanent Marker', cursive;
         font-size: 14px;
         line-height: 24px;
-        color: #59606E;
-        background-color: #FFF682;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-        transition: box-shadow 0.4s ease, transform .3s ease-in-out; }
-        nav#site-navigation ul li a:hover {
-          transform: scale(1.1);
-          transform: rotate(1deg);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
-        nav#site-navigation ul li a[aria-current="page"] {
-          background-color: #C4E3CE; }
+        color: #303030; } }
+
+footer .site-info {
+  text-align: center;
+  font-size: .75rem; }

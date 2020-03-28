@@ -1,5 +1,9 @@
-$primary: #59606E;
+$primary: #000;
 $secondary: #59606E;
+$sharpie: #303030;
+$expo-blue: #1a62b5;
+$expo-green: #2d7947;
+$expo-red: #af1f16;
 $post-it-yellow: #FFF682;
 $post-it-green: #C4E3CE;
 $post-it-red: #F6C8E0;
@@ -50,11 +54,15 @@ $post-it-red: #F6C8E0;
 }
 
 #nav-content-cols {
-  display: flex;
+  @media (min-width: 37.5em) {
+    display: flex;
+  }
 }
 
 #site-navigation {
-  margin-right: 5rem;
+  @media (min-width: 37.5em) {
+    margin-right: 5rem;
+  }
 }
 
 #colophon {
@@ -69,54 +77,46 @@ body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   background: rgb(241,241,242);
   background: linear-gradient(42deg, rgba(241,241,242,1) 0%, rgba(255,255,255,1) 35%, rgba(242,244,245,1) 100%);
-
-  // &:before {
-  //   position: fixed;
-  //   right: 100px;
-  //   top: 80px;
-  //   content: 'Thematic Analysis';
-  //   font-family: 'Permanent Marker', cursive;
-  //   font-size: 30px;
-  //   color: rgba( $primary, .04 );
-  //   transform: rotate(10deg);
-  // }
 }
 
 h1.site-title {
+  margin: 0 auto 2rem;
   background: transparent url(../img/logo.svg) 0 0 no-repeat;
-  width: 183px;
-  height: 137px;
+  background-size: contain;
+  width: 120px;
+  height: 90px;
   overflow: hidden;
   text-indent: -8888px;
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Permanent Marker', cursive;
+  color: $sharpie;
+  @media (max-width: 37.5em) {
+    text-align: center;
+  }
 }
 
 h1 {
-  color: $primary;
   font-weight: normal;
-  font-size: 44px;
-  line-height: 50px;
+  font-size: 48px;
+  line-height: 58px;
 }
 
 h2 {
-  color: $secondary;
   font-weight: normal;
-  font-size: 34px;
+  font-size: 30px;
   line-height: 40px;
 }
 
 h3 {
-  color: $primary;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px; 
 }
 
-#content {
+#content,
+footer.site-footer {
 
   a {
     transition: background-position .4s ease .1s;
@@ -141,19 +141,20 @@ h3 {
   }
 }
 
+@media (min-width: 37.5em) {
 nav#site-navigation {
-  width: 270px;
-  margin-top: 2.5rem;
-  
+    width: 270px;
+    margin-top: 1.5rem;
+
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    position: relative;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex-wrap: wrap;
 
     li {
-      order: 1;
-      align-self: flex-start;
+        order: 1;
+        align-self: flex-start;
 
       &:nth-of-type(1):before {
         display: block;
@@ -162,7 +163,7 @@ nav#site-navigation {
         font-family: 'Permanent Marker', cursive;
         font-size: 28px;
         line-height: 38px;
-        color: #59606E;
+        color: $sharpie;
         content: 'To Do';
       }
 
@@ -173,14 +174,14 @@ nav#site-navigation {
         font-family: 'Permanent Marker', cursive;
         font-size: 28px;
         line-height: 38px;
-        color: #59606E;
+        color: $sharpie;
         content: 'To Do';
       }
 
       &.current-menu-item {
         order: 0;
         align-self: flex-end;
-        position: absolute;
+          position: absolute;
     
         &:before {
           display: block;
@@ -189,7 +190,7 @@ nav#site-navigation {
           font-family: 'Permanent Marker', cursive;
           font-size: 28px;
           line-height: 38px;
-          color: #59606E;
+          color: $sharpie;
           content: 'Doing';
         }
       }
@@ -251,21 +252,88 @@ nav#site-navigation {
     }
   }
 }
-  
 
-  
+body.single-portfolio {
+
+  nav#site-navigation {
+
+    ul {
+
+      li.menu-item-object-portfolio {
+        order: 0;
+        align-self: flex-end;
+        @media (min-width: 37.5em) {
+          position: absolute;
+        }
+
+        &:before {
+          display: block;
+          margin: 0 auto 2rem;
+          text-align: center;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 28px;
+          line-height: 38px;
+          color: $sharpie;
+          content: 'Doing';
+        }
+
+        a {
+          background-color: #C4E3CE;
+        }
+      }
+    }
+  }
+}  
+}
+
+@media (max-width: 37.5em) {
+  nav#site-navigation {
+
+    button.menu-toggle {
+      margin: 0 auto 1.5rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 4px solid $sharpie;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    ul {
+      position: relative;
+
+      li {
+        display: block;
+        float: none;
+        text-align: center;
+        margin-bottom: 1rem;
+
+      &.current-menu-item {
+        
+        a {
+          display: inline;
+          color: darken($post-it-yellow, 60%);
+          background-color: lighten($post-it-yellow, 10%);
+        }
+      }
+
+        a {
+          display: inline;
+          font-family: 'Permanent Marker', cursive;
+          font-size: 14px;
+          line-height: 24px;
+          color: $sharpie;
+        }
+      }
+    }
+  }
+}
 
 
-  
-  // nav div#todo a {
-  //   //background-color: #FFF682;
-  // }
-  
-  // nav div#doing a {
-  //   //background-color: #C4E3CE;
-  // }
-  
-  // nav div#done a {
-  //   //background-color: #F6C8E0;
-  // }
-  
+footer {
+
+  .site-info {
+    text-align: center;
+    font-size: .75rem;
+  }
+}
