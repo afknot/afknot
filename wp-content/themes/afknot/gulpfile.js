@@ -1,5 +1,5 @@
 // If you're interested in automating more control, check out gulpjs.com for more dependencies
-// This is meant as a starting point. You can do a LOT more with gulpjs than this
+// This is meant as a starting point. You can do a LOT more with gulpjs than this 
 
 // Requiring dependencies here, make sure to add them via the terminal
 var gulp   = require('gulp'),
