@@ -116,14 +116,18 @@ function afknot_widgets_init() {
 }
 add_action( 'widgets_init', 'afknot_widgets_init' );
 
+
+
 /**
  * Enqueue scripts and styles.
  */
 function afknot_scripts() {
+
 	wp_enqueue_style( 'afknot-style', get_stylesheet_uri() );
-
+	wp_enqueue_style( 'enqueue-that-css', get_template_directory_uri() . '/css/main.css', array(), '1.0', 'all');
+	wp_enqueue_script( 'fotorama', get_template_directory_uri() . '/js/fotorama.js', array(), false);
+	wp_enqueue_script( 'enqueue-that-js', get_template_directory_uri() . '/js/min/main.min.js', array ( 'jquery' ), 1.0, true);
 	wp_enqueue_script( 'afknot-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'afknot-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -131,6 +135,8 @@ function afknot_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'afknot_scripts' );
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -216,3 +222,5 @@ function create_portfoliopiece_cpt() {
 
 }
 add_action( 'init', 'create_portfoliopiece_cpt', 0 );
+
+// Blah

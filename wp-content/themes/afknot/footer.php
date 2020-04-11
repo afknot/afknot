@@ -12,20 +12,12 @@
 ?>
 
 	</div><!-- #content -->
+	</div><!-- #nav-content-cols -->
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'afknot' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'afknot' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'afknot' ), 'afknot', '<a href="https://www.afknot.com">Alex Robinson</a>' );
-				?>
+		<p><?php echo get_bloginfo( 'name' ); ?> &nbsp;|&nbsp; <a href="mailto:info@afknot.com">info@afknot.com</a> &nbsp;|&nbsp; Baltimore, MD<br>
+		Copyright &copy <?php echo date("Y"); ?> <?php echo get_bloginfo( 'name' ); ?>. All Rights Reserved. <a href="http://madewithloveinbaltimore.org" target="_blank">Made with &hearts; in Baltimore</a></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
