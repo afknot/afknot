@@ -1405,6 +1405,9 @@ object {
   src: url("../fonts/font-awesome/fa-brands-400.eot");
   src: local("☺"), url("../fonts/font-awesome/fa-brands-400.woff") format("woff"), url("../fonts/font-awesome/fa-brands-400.woff2") format("woff2"), url("../fonts/font-awesome/fa-brands-400.ttf") format("truetype"), url("../fonts/font-awesome/fa-brands-400.svg") format("svg"); }
 
+html, body {
+  min-height: 100vh; }
+
 #page {
   max-width: 1000px;
   margin: 4rem auto;
@@ -1642,6 +1645,9 @@ footer .site-info {
   font-family: 'Font Awesome Brands';
   src: url("../fonts/font-awesome/fa-brands-400.eot");
   src: local("☺"), url("../fonts/font-awesome/fa-brands-400.woff") format("woff"), url("../fonts/font-awesome/fa-brands-400.woff2") format("woff2"), url("../fonts/font-awesome/fa-brands-400.ttf") format("truetype"), url("../fonts/font-awesome/fa-brands-400.svg") format("svg"); }
+
+html, body {
+  min-height: 100vh; }
 
 #page {
   max-width: 1000px;

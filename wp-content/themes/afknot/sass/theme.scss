@@ -47,6 +47,8 @@ $post-it-red: #F6C8E0;
 
 // Layout
 
+html, body {min-height: 100vh;}
+
 #page {
   max-width: 1000px;
   margin: 4rem auto;
