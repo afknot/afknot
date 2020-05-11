@@ -127,13 +127,13 @@ function my_excerpt_protected( $excerpt ) {
 }
 add_filter( 'the_excerpt', 'my_excerpt_protected' );
 
-function my_excerpt_protected( $excerpt ) {
-    if ( post_password_required() && function_exists('ppw_core_render_login_form') ) {
-        $excerpt = ppw_core_render_login_form();
-}
-    return $excerpt;
-}
-add_filter( 'the_excerpt', 'my_excerpt_protected' );
+// function my_excerpt_protected( $excerpt ) {
+//     if ( post_password_required() && function_exists('ppw_core_render_login_form') ) {
+//         $excerpt = ppw_core_render_login_form();
+// }
+//     return $excerpt;
+// }
+// add_filter( 'the_excerpt', 'my_excerpt_protected' );
 
 add_filter('afknot_can_show_post_thumbnail', function() {
 	return ! is_attachment() && has_post_thumbnail();
