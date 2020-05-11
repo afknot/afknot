@@ -117,6 +117,28 @@ function afknot_widgets_init() {
 add_action( 'widgets_init', 'afknot_widgets_init' );
 
 
+/**
+ * Display Featured Image & Excerpt for Password Protected Content
+ */
+function my_excerpt_protected( $excerpt ) {
+    if ( post_password_required() )
+        $excerpt = 'Projects with protected IP; Projects that are protected by a nondisclosure agreement (NDA); Projects that are active.';
+    return $excerpt;
+}
+add_filter( 'the_excerpt', 'my_excerpt_protected' );
+
+function my_excerpt_protected( $excerpt ) {
+    if ( post_password_required() && function_exists('ppw_core_render_login_form') ) {
+        $excerpt = ppw_core_render_login_form();
+}
+    return $excerpt;
+}
+add_filter( 'the_excerpt', 'my_excerpt_protected' );
+
+add_filter('afknot_can_show_post_thumbnail', function() {
+	return ! is_attachment() && has_post_thumbnail();
+});
+
 
 /**
  * Enqueue scripts and styles.
